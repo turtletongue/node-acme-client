@@ -112,6 +112,10 @@ instance.interceptors.response.use(null, async (error) => {
         }
     }
 
+    if (!response) {
+        return Promise.reject(error);
+    }
+
     /* Validate and return response */
     return validateStatus(response);
 });
